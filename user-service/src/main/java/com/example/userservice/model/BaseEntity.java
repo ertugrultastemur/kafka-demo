@@ -23,5 +23,5 @@ public class BaseEntity {
     private Date updatedAt;
 
     @Column(name = "is_deleted")
-    private Boolean isDeleted;
+    private Boolean isDeleted=Boolean.FALSE;
 }
