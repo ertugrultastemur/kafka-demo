@@ -34,6 +34,16 @@ public class UserCreatedKafkaConsumerConfiguration<T> {
         return new DefaultKafkaConsumerFactory<>(config);
     }
 
+    /*@Bean
+    // Creating a Listener
+    public ConcurrentKafkaListenerContainerFactory concurrentKafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, T> factory
+                = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory());
+        factory.setMessageConverter(new StringJsonMessageConverter());
+        return factory;
+    }*/
+
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String,T> concurrentKafkaListenerContainerFactory(){
         ConcurrentKafkaListenerContainerFactory<String, T> factory = new ConcurrentKafkaListenerContainerFactory<>();

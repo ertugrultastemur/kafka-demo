@@ -18,6 +18,9 @@ server:
 
 kafka:
   host: localhost:9092
+  backoff:
+    max_failure: 200000
+    interval: 100000
   topics:
     user-created:
       topic: user_service.user_created.0

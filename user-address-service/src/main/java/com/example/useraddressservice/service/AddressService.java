@@ -18,7 +18,7 @@ public class AddressService {
         return addressRepository.save(address);
     }
 
-    public Optional<List<Address>> getAddressByUserId(Long userId){
+    public Address getAddressByUserId(Long userId){
         return addressRepository.findByUserId(userId);
     }
 }

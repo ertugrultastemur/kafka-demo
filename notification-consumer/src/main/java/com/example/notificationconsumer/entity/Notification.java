@@ -1,22 +1,24 @@
 package com.example.notificationconsumer.entity;
 
 import com.example.notificationconsumer.consumers.model.UserCreatedEvent;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.Field;
+import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
 
 import java.lang.annotation.Documented;
+
+import static org.springframework.data.couchbase.core.mapping.id.GenerationStrategy.UNIQUE;
 
 @Getter
 @Setter
 @Document
 public class Notification {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = UNIQUE)
     private String id;
 
     @Field

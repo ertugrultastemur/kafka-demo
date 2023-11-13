@@ -14,7 +14,6 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
 public class UserController {
-    private RestTemplate restTemplate = new RestTemplate();
     private final UserService userService;
 
     @PostMapping
@@ -22,12 +21,9 @@ public class UserController {
         return userService.create(userCreateRequest);
     }
 
-    @GetMapping
+    @GetMapping("/{userId}")
     public UserResponse getUserAddress(@PathVariable Long userId){
-        String url = String.format("http://localhost:8002/api/address/%s", userId);
-        ResponseEntity<AddressResponseDto> address = restTemplate.getForEntity(url, AddressResponseDto.class);
-        User user = userService.getUserById(address.getBody().getUserId());
-        return UserResponse.getUserResponseWithAddress(user, address.getBody());
+        return userService.getUserById(userId);
     }
 
 }
