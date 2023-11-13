@@ -7,6 +7,7 @@ import org.springframework.data.couchbase.config.AbstractCouchbaseConfiguration;
 @Configuration
 public class MyCouchbaseConfig extends AbstractCouchbaseConfiguration {
 
+
     @Value("${couchbase.notification-service.config.bootstrapHosts}")
     private String connectionString;
 
@@ -18,7 +19,6 @@ public class MyCouchbaseConfig extends AbstractCouchbaseConfiguration {
 
     @Value("${couchbase.notification-service.config.notificationBucket}")
     private String bucketName;
-
 
     @Override
     public String getConnectionString() {
